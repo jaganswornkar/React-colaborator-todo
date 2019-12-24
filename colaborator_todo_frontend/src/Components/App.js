@@ -22,7 +22,7 @@ export class App extends Component {
     var token = reactLocalStorage.get("token");
 
     axios
-      .post("http://localhost:3030/getProject", {
+      .post("http://15.206.140.31:3030/getProject", {
         token: token
       })
       .then(data => {
@@ -41,7 +41,7 @@ export class App extends Component {
   componentDidUpdate() {
     var Token = reactLocalStorage.get("token");
     axios
-      .get("http://localhost:3030/checkToken", { params: { token: Token } })
+      .get("http://15.206.140.31:3030/checkToken", { params: { token: Token } })
       .then(result => {
         if (result.data === "tokenExpires") {
           reactLocalStorage.get("token", "");

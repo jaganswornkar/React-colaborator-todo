@@ -21,7 +21,7 @@ export class Notes extends Component {
 
   UNSAFE_componentWillMount() {
     this.setState({ note: this.props.todoNote });
-    Axios.get("http://localhost:3030/getFiles/" + this.props.todoId)
+    Axios.get("http://15.206.140.31:3030/getFiles/" + this.props.todoId)
       .then(result => {
         this.setState({ urls: result.data });
         console.log(result.data);
@@ -33,7 +33,7 @@ export class Notes extends Component {
 
   noteHandler = () => {
     this.props.closeNote();
-    Axios.post("http://localhost:3030/note/" + this.props.todoId, {
+    Axios.post("http://15.206.140.31:3030/note/" + this.props.todoId, {
       note: this.state.note,
       project_id: this.props.project_id,
       token: reactLocalStorage.get("token")
@@ -58,7 +58,7 @@ export class Notes extends Component {
     const filedata = new FormData();
     filedata.append("image", this.state.files);
     Axios.post(
-      "http://localhost:3030/file-upload/" + this.props.todoId,
+      "http://15.206.140.31:3030/file-upload/" + this.props.todoId,
       filedata
     )
       .then(data => {

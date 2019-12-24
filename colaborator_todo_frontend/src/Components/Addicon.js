@@ -68,7 +68,7 @@ export default function FontAwesome(props) {
   const onSubmitHandler = () => {
     var token = reactLocalStorage.get("token");
     axios
-      .post("http://localhost:3030/project", {
+      .post("http://15.206.140.31:3030/project", {
         project: item,
         description: description,
         token: token

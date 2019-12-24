@@ -55,7 +55,7 @@ export default function SignIn() {
   const googleLoginHandler = (email) =>{
     // e.preventDefault();
     axios
-        .post('http://localhost:3030/login',({'email':email}))
+        .post('http://15.206.140.31:3030/login',({'email':email}))
         .then((data)=> {            
             if(data.data==="wrongPass"){
                 setPassword('');
@@ -87,7 +87,7 @@ export default function SignIn() {
   const onSubmitHandler = (e) =>{
     e.preventDefault();
     axios
-        .post('http://localhost:3030/login',({'email':email,'password':password}))
+        .post('http://15.206.140.31:3030/login',({'email':email,'password':password}))
         .then((data)=> {            
             if(data.data==="wrongPass"){
                 setPassword('');

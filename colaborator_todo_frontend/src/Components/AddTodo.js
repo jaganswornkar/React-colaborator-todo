@@ -15,7 +15,7 @@ function Todo(props){
         if(e.key==="Enter"){
             if((item.length>0) && (item.match(/[a-z]/i))){
                 axios
-                .post('http://localhost:3030/todo',({
+                .post('http://15.206.140.31:3030/todo',({
                     'text': item,
                     'assignedTo': assignedTo,
                     'done':false,

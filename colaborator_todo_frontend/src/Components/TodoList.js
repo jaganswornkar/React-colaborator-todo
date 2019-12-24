@@ -66,7 +66,7 @@ export default function TodoList(props) {
     // var project_id = props.project_id;
     var Token = reactLocalStorage.get("token");
     axios
-      .post("http://localhost:3030/delete/" + e, {
+      .post("http://15.206.140.31:3030/delete/" + e, {
         id: e,
         token: Token,
         project_id: project_id
@@ -90,7 +90,7 @@ export default function TodoList(props) {
     if (e.key === "Enter") {
       if (item.length > 0 && item.match(/[a-z]/i)) {
         axios
-          .put("http://localhost:3030/edit/" + editId, {
+          .put("http://15.206.140.31:3030/edit/" + editId, {
             id: editId,
             text: item,
             project_id: props.project_id,
@@ -115,7 +115,7 @@ export default function TodoList(props) {
     var dict = _.findWhere(itemList, { id: parseInt(e.target.id, 10) });
     if (dict.done === 0 || dict.done === false) {
       axios
-        .put("http://localhost:3030/done/" + dict.id, {
+        .put("http://15.206.140.31:3030/done/" + dict.id, {
           done: true,
           text: dict.text,
           token: reactLocalStorage.get("token"),
@@ -130,7 +130,7 @@ export default function TodoList(props) {
         });
     } else {
       axios
-        .put("http://localhost:3030/done/" + dict.id, {
+        .put("http://15.206.140.31:3030/done/" + dict.id, {
           done: false,
           text: dict.text,
           token: reactLocalStorage.get("token"),

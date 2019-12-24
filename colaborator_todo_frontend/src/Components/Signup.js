@@ -52,7 +52,7 @@ export default function SignUp() {
 
   const googleLoginHandler = (email,name) =>{
     axios
-    .post('http://localhost:3030/signup',({'username':name,'email':email}))        
+    .post('http://15.206.140.31:3030/signup',({'username':name,'email':email}))        
     .then((result)=>{
         if(result.data!=='err'){swal("Signup successful!", "Please signin !","success");
         console.log('signup successfull!')
@@ -73,7 +73,7 @@ export default function SignUp() {
       console.log('hello jagan',name,email,password)
         e.preventDefault();
         axios
-        .post('http://localhost:3030/signup',({'username':name+' '+lastName,'email':email,'password':password}))        
+        .post('http://15.206.140.31:3030/signup',({'username':name+' '+lastName,'email':email,'password':password}))        
         .then((result)=>{
             if(result.data!=='err'){
               swal("Signup successful!", "Please signin !","success");

@@ -18,7 +18,7 @@ export class Comments extends Component {
     };
   }
   UNSAFE_componentWillMount() {
-    Axios.get("http://localhost:3030/comment" + this.props.todoId)
+    Axios.get("http://15.206.140.31:3030/comment" + this.props.todoId)
       .then(data => {
         console.log("comment get from backed", data.data);
         this.setState({ comments: data.data });
@@ -27,7 +27,7 @@ export class Comments extends Component {
         console.log("err in sending comment into backend", err);
       });
 
-    Axios.get("http://localhost:3030/getSubComment" + this.props.todoId)
+    Axios.get("http://15.206.140.31:3030/getSubComment" + this.props.todoId)
       .then(data => {
         console.log(data.data);
         this.setState({ subCommentList: data.data });
@@ -37,7 +37,7 @@ export class Comments extends Component {
       });
   }
   commentHandler = e => {
-    Axios.post("http://localhost:3030/comment" + this.props.todoId, {
+    Axios.post("http://15.206.140.31:3030/comment" + this.props.todoId, {
       comment: this.state.item
     })
       .then(data => {
@@ -51,7 +51,7 @@ export class Comments extends Component {
   submitReply = () => {
     console.log(this.state.comment_id);
     Axios.post(
-      "http://localhost:3030/subComment/" +
+      "http://15.206.140.31:3030/subComment/" +
         this.props.todoId +
         "/" +
         this.state.comment_id,

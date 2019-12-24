@@ -22,7 +22,7 @@ export class Todos extends Component {
 
     UNSAFE_componentWillMount(){
         axios
-        .post('http://localhost:3030/getTodos',({
+        .post('http://15.206.140.31:3030/getTodos',({
             'token':reactLocalStorage.get('token'),
             'project_id':this.props.match.params.id
             }))
@@ -40,7 +40,7 @@ export class Todos extends Component {
     componentDidUpdate(){
         var Token =reactLocalStorage.get('token');
         axios
-        .get('http://localhost:3030/checkToken',({params:{token:Token}}))
+        .get('http://15.206.140.31:3030/checkToken',({params:{token:Token}}))
         .then(result=>{
                 if(result.data==='tokenExpires'){
                     reactLocalStorage.get('token','')
@@ -57,7 +57,7 @@ export class Todos extends Component {
         var project_id = this.props.match.params.id
         var Token =reactLocalStorage.get('token');
         axios
-        .post('http://localhost:3030/delete/'+e,{id:e,token:Token,project_id:project_id})
+        .post('http://15.206.140.31:3030/delete/'+e,{id:e,token:Token,project_id:project_id})
         .then((result)=>{
             this.setState({itemList:result.data})
         })
