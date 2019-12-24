@@ -19,7 +19,7 @@ file uploading on aws s3.
 6. for credentials you need to create a *.env* file inside this backend directory. use `touch .env` to create *.env* file and inside that file use the *.env_example* file details (given inside the directory)
 6. run command `node server.js` to run the backend.
 
-onece refresh your app again
+onece refresh your app again.
 
 
 ### To use file uploading features
@@ -28,4 +28,3 @@ to use file uploading features you need an AWS account and create a bucket on AW
 for Aws access id and Aws security key, go to *my security console* and create a new access key. <br/>
 and you can also copy the *region* from the params of the aws s3 tab on browser and bucket name from s3.
 
-<jagan>
